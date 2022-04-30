@@ -3,7 +3,9 @@ import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, } from '@material-ui/core/styles';
+import { switchActions, } from '../store/reducers/Switch';
 import Weather from './Weather';
+import { useSelector, useDispatch,  } from 'react-redux';
 
 
 const useStyles = makeStyles({
@@ -32,11 +34,12 @@ const useStyles = makeStyles({
 export default () => {
   const classes = useStyles();
 
-  //const dispath = useDispatch();
+  const dispath = useDispatch();
+  //const isSwitch = useSelector(state => state.Switch.isSwitch);
   
 
   const switchHandler = () => {
-    //dispath(switchAction.switch());
+    dispath(switchActions.weatherPage());
   };
 
   const name = "Yasha's";
