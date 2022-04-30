@@ -58,8 +58,8 @@ const Weather: FC = () => {
   return <Chip label={`Weather in ${locationName}: ${description} and ${Math.round(toF(temperatureinCelsius))}°`} />;
 };
 
-export default () => (
-  <ApolloProvider client={client}>
-    <Weather />
-  </ApolloProvider>
-);
+// export default () => (
+//   <ApolloProvider client={client}>
+//     <Weather />
+//   </ApolloProvider>
+// );
