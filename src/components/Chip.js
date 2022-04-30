@@ -1,6 +1,6 @@
 import Chip from '@material-ui/core/Chip';
 //import { withStyles, Theme } from '@material-ui/core/styles';
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles, } from "@material-ui/core/styles";
 
 const cardStyles = (theme) => ({
   root: {
