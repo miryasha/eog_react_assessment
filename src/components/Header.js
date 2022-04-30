@@ -5,14 +5,38 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, } from '@material-ui/core/styles';
 import Weather from './Weather';
 
+
 const useStyles = makeStyles({
   grow: {
     flexGrow: 1,
   },
+  button : {
+    fontSize: '1.25rem',
+    backgroundColor: '#ffbb00',
+    border: '1px  #ffbb00',
+    borderRadius: '2rem',
+    padding: '0.5rem 1.5rem',
+    boxShadow: '0 1px 4px rgba(0, 0, 0, 0.2)',
+    color: '#2c2922',
+    '&:hover':{
+      backgroundColor: '#ffa600',
+      borderColor: '#ffa600',
+    },
+    
+  },
+  
+
 });
 
 export default () => {
   const classes = useStyles();
+
+  //const dispath = useDispatch();
+  
+
+  const switchHandler = () => {
+    //dispath(switchAction.switch());
+  };
 
   const name = "Yasha's";
   return (
@@ -20,7 +44,7 @@ export default () => {
       <Toolbar>
         <Typography variant="h6" color="inherit" className={classes.grow}>
           {name} EOG React Visualization Assessment
-          <button>switch</button>
+          <button className={classes.button} onClick={switchHandler}>switch</button>
         </Typography>
         {/* <Weather /> */}
       </Toolbar>
