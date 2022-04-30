@@ -1,9 +1,7 @@
 import React from 'react';
 import { ToastContainer, } from 'react-toastify';
-
 import  createStore from './store';
 import { Provider } from "react-redux";
-
 import { MuiThemeProvider, createTheme, } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,11 +28,13 @@ const theme = createTheme({
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
+    <Provider store={store}>
     <Wrapper>
-      <Header />
+      {/* <Header /> */}
       <NowWhat />
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </Wrapper>
+    </Provider>
   </MuiThemeProvider>
 );
 
