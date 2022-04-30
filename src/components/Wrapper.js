@@ -13,3 +13,8 @@ const useStyles = makeStyles({
 // };
 
 // export default Wrapper;
+
+export default ({ children }) => {
+  const classes = useStyles();
+  return <div className={classes.wrapper}>{children}</div>;
+};
