@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
+import Weather from './components/Weather';
 
 const store = createStore();
 
@@ -30,8 +31,10 @@ const App = () => (
     <CssBaseline />
     <Provider store={store}>
     <Wrapper>
-      {/* <Header /> */}
-      <NowWhat />
+    
+      <Header />
+      <Weather/>
+      {/* <NowWhat /> */}
       {/* <ToastContainer /> */}
     </Wrapper>
     </Provider>
