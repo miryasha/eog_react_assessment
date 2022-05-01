@@ -1,11 +1,12 @@
 import React from "react";
 import { makeStyles, } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   wrapper: {
-    height: '100vh',
-  },
-});
+    background: theme.palette.background.default,
+    height: "100vh"
+  }
+}));
 
 
 export default ({ children }) => {

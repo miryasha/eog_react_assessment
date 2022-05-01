@@ -13,7 +13,7 @@ import Switch from '@material-ui/core/Switch';
 
 const current_time = new Date().valueOf();
 
-let style = {
+let styles = {
   div1: {
     textAlign: 'right',
     margin: '20px',
@@ -160,7 +160,7 @@ const FetchNewMeasurementData = state => {
 };
 
 const MetricList = () => {
-  const [metricState, setState] = useState({
+  const [metricState, setMetricState] = useState({
     switch: true,
     value: []
   });
@@ -179,15 +179,15 @@ const MetricList = () => {
   options = metricListToDropDownFormat(options, getMetrics);
 
   const handleSelectionChange = (event, { value }) => {
-    setState({ ...metricState, value });
+    setMetricState({ ...metricState, value });
   };
   const toggleChange = name => event => {
-    setState({ ...metricState, [name]: event.target.checked });
+    setMetricState({ ...metricState, [name]: event.target.checked });
   };
 
   return (
     <div>
-      <div style={style.div1}>
+      <div style={styles.div1}>
         <FormControlLabel
           control={
             <Switch
@@ -207,11 +207,11 @@ const MetricList = () => {
           multiple
           selection
           options={options}
-          style={style.div2}
+          style={styles.div2}
           onChange={handleSelectionChange}
         />
       </Container>
-      <div style={style.div3}>
+      <div style={styles.div3}>
         <Charts command={metricState} />
       </div>
       <div>
