@@ -1,13 +1,10 @@
 import React, { useEffect, useState, } from 'react';
-import * as actions from '../store/actions';
 import { useQuery, useSubscription, } from 'urql';
 import { useDispatch, useSelector, } from 'react-redux';
+import * as actions from '../store/actions';
 import Charts from './Charts';
 import DisplayBox from './DisplayBox';
-import { Dropdown, } from 'semantic-ui-react';
-import { Loader, } from 'semantic-ui-react';
-import { Dimmer, } from 'semantic-ui-react';
-
+import { Dropdown, Loader, Dimmer, } from 'semantic-ui-react';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
@@ -163,7 +160,7 @@ const FetchNewMeasurementData = state => {
 };
 
 const MetricList = () => {
-  const [metricState, setMetricState] = useState({
+  const [metricState, setState] = useState({
     switch: true,
     value: []
   });
@@ -182,10 +179,10 @@ const MetricList = () => {
   options = metricListToDropDownFormat(options, getMetrics);
 
   const handleSelectionChange = (event, { value }) => {
-    setMetricState({ ...metricState, value });
+    setState({ ...metricState, value });
   };
   const toggleChange = name => event => {
-    setMetricState({ ...metricState, [name]: event.target.checked });
+    setState({ ...metricState, [name]: event.target.checked });
   };
 
   return (

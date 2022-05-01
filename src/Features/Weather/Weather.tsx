@@ -11,10 +11,10 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { Typography } from '@material-ui/core';
 import Chip from '../../components/Chip';
 
-const client = new ApolloClient({
-  uri: 'https://react-assessment.herokuapp.com/graphql',
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   uri: 'https://react-assessment.herokuapp.com/graphql',
+//   cache: new InMemoryCache(),
+// });
 
 const toF = (c: number) => (c * 9) / 5 + 32;
 
@@ -58,8 +58,8 @@ const Weather: FC = () => {
   return <Chip label={`Weather in ${locationName}: ${description} and ${Math.round(toF(temperatureinCelsius))}°`} />;
 };
 
-export default () => (
-  <ApolloProvider client={client}>
-    <Weather />
-  </ApolloProvider>
-);
+// export default () => (
+//   <ApolloProvider client={client}>
+//     <Weather />
+//   </ApolloProvider>
+// );
