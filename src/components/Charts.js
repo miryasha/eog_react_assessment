@@ -1,4 +1,5 @@
-import React, { useState, } from '@babel/generator';
+import React from '@babel/generator';
+import { useState, } from 'react';
 import { useSelector, } from 'react-redux';
 import {
   LineChart,
@@ -49,8 +50,7 @@ const measurementDataToChartFormat = (data_list, getMultipleMeasurements) => {
   }
   return data_chart_format;
 
-  
-
+};
 const Chart = props => {
   const getMultipleMeasurements = useSelector(getMultipleMeasurement);
   const [state, setState] = useState({
@@ -73,8 +73,8 @@ const Chart = props => {
   const displayTooltip = name => e => {
     setState({ ...state, [name]: e });
   };
-  const hideTooltip = name => e =>{
-    setState({...state, [name]: []})
+  const hideTooltip = name => e => {
+    setState({ ...state, [name]: [] })
   }
 
   return (
@@ -103,29 +103,29 @@ const Chart = props => {
             padding={{ top: 10, bottom: 10 }}
             tickCount={10}
           />
-     
+
           <Legend />
 
           {props.props.command.value
             ? props.props.command.value.map(a => {
-                return (
-                  <Line
-                    type="monotone"
-                    key={`${a}`}
-                    dataKey={`${a}`}
-                    strokeOpacity="1"
-                    stroke="red"
-                    activeDot={{ r: 8 }}
-                    isAnimationActive={false}
-                    dot={false}
-                  />
-                );
-              })
+              return (
+                <Line
+                  type="monotone"
+                  key={`${a}`}
+                  dataKey={`${a}`}
+                  strokeOpacity="1"
+                  stroke="red"
+                  activeDot={{ r: 8 }}
+                  isAnimationActive={false}
+                  dot={false}
+                />
+              );
+            })
             : null}
         </LineChart>
       </ResponsiveContainer>
-      { state.tooltip === false ? null: <TooltipBox tooltipInfo = {state.tooltip}/>  }
-      
+      {state.tooltip === false ? null : <TooltipBox tooltipInfo={state.tooltip} />}
+
 
     </div>
   );
