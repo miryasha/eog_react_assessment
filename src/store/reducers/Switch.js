@@ -1,6 +1,6 @@
 import * as actions from "../actions";
 
-const initialSwitchState = { isSwitch: false };
+const initialState = { isSwitch: false };
 
 
 const weatherPage =(state, action)=>{
@@ -13,9 +13,9 @@ const nowWhat =(state, action)=>{
 
 
 const handlers = {
-    [actions.SWITCH_WEATHER]: weatherPage
+    [actions.SWITCH_WEATHER]: weatherPage,
     [actions.SWITCH_NOWWHAT]: nowWhat
-  };
+}
 
 export default (state = initialState, action)=>{
     const handler = handlers[action.type];
