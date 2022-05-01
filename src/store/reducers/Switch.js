@@ -1,19 +1,19 @@
 import * as actions from "../actions";
 
-const initialState = { isSwitch: false };
+const initialState = false;
 
 
-const weatherPage =(state, action)=>{
-    return {...state, error: action.error}
+const chartPage =(state, action)=>{
+     return action = !initialState;
 }
 
 const nowWhat =(state, action)=>{
-    return {...state, error: action.error}
+    return action = initialState;
 }
 
 
 const handlers = {
-    [actions.SWITCH_WEATHER]: weatherPage,
+    [actions.SWITCH_CHART]: chartPage,
     [actions.SWITCH_NOWWHAT]: nowWhat
 }
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import * as actions from '../store/actions';
+import { useDispatch, useSelector, } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -31,12 +33,17 @@ const useStyles = makeStyles({
 
 export default () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
+  const isSwitch = useSelector(state => state.switch);
 
   const switchHandler = () => {
+   console.log("hi")
+   dispatch({ type: actions.SWITCH_CHART });
    
   };
-
+console.log(isSwitch)
+ 
   const name = "Yasha's";
   return (
     <AppBar position="static">

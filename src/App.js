@@ -1,5 +1,4 @@
 import React from 'react';
-import { ToastContainer, } from 'react-toastify';
 import  createStore from './store';
 import { Provider, } from "react-redux";
 import { MuiThemeProvider, createTheme, } from '@material-ui/core/styles';
@@ -8,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
-//import Weather from './components/Weather';
 import MetricList from "./components/MetricList";
 
 const store = createStore();
@@ -34,10 +32,8 @@ const App = () => (
     <Wrapper>
     
       <Header />
-      <MetricList />
-      {/* <Weather/> */}
-      {/* <NowWhat /> */}
-      <ToastContainer />
+      {/* <MetricList /> */}
+      <NowWhat />
     </Wrapper>
     </Provider>
   </MuiThemeProvider>
