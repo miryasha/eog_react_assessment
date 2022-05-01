@@ -1,4 +1,4 @@
-import React from '@babel/generator';
+import React, { useState, } from '@babel/generator';
 import { useSelector, } from 'react-redux';
 import {
   LineChart,
@@ -11,10 +11,7 @@ import {
 } from 'recharts';
 import TooltipBox from './TooltipBox';
 
-var moment = require('moment');
-
-
-
+let moment = require('moment');
 
 
 function formatXAxis(tickItem) {
@@ -22,7 +19,10 @@ function formatXAxis(tickItem) {
   return tickItem;
 }
 
-export default props => {   return <Chart props={props} />; };
+export default props => {
+  return <Chart props={props} />;
+};
+
 
 const getMultipleMeasurement = state => {
   const getMultipleMeasurements =
@@ -53,7 +53,7 @@ const measurementDataToChartFormat = (data_list, getMultipleMeasurements) => {
 
 const Chart = props => {
   const getMultipleMeasurements = useSelector(getMultipleMeasurement);
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     tooltip: [],
   });
   let dataList = [];
@@ -124,9 +124,7 @@ const Chart = props => {
             : null}
         </LineChart>
       </ResponsiveContainer>
-      {
-        state.tooltip === false ? null: <TooltipBox tooltipInfo = {state.tooltip}/>
-        }
+      { state.tooltip === false ? null: <TooltipBox tooltipInfo = {state.tooltip}/>  }
       
 
     </div>
