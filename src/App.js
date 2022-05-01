@@ -1,6 +1,6 @@
 import React from 'react';
-import  createStore from './store';
-import { Provider, } from "react-redux";
+import * as actions from './store/actions';
+import { useSelector, } from 'react-redux';
 import { MuiThemeProvider, createTheme, } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,7 +9,6 @@ import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
 import MetricList from "./components/MetricList";
 
-const store = createStore();
 
 const theme = createTheme({
   palette: {
@@ -25,18 +24,23 @@ const theme = createTheme({
   },
 });
 
-const App = () => (
-  <MuiThemeProvider theme={theme}>
-    <CssBaseline />
-    <Provider store={store}>
-    <Wrapper>
-    
-      <Header />
-      {/* <MetricList /> */}
-      <NowWhat />
-    </Wrapper>
-    </Provider>
-  </MuiThemeProvider>
-);
+
+ 
+const App = () => {
+  const isSwitch = useSelector(state => state.switch);
+
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <Wrapper>
+        <Header />
+        {!isSwitch && <NowWhat />}
+        {isSwitch &&  <MetricList />} 
+      </Wrapper>
+    </MuiThemeProvider>
+    );
+
+}
+
 
 export default App;

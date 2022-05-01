@@ -37,12 +37,18 @@ export default () => {
 
   const isSwitch = useSelector(state => state.switch);
 
-  const switchHandler = () => {
+  const switchToChartHandler = () => {
    console.log("hi")
    dispatch({ type: actions.SWITCH_CHART });
    
   };
-console.log(isSwitch)
+
+  const switchToLandingHandler = () => {
+    console.log("hi")
+    dispatch({ type: actions.SWITCH_NOWWHAT });
+    
+   };
+
  
   const name = "Yasha's";
   return (
@@ -50,7 +56,8 @@ console.log(isSwitch)
       <Toolbar>
         <Typography variant="h6" color="inherit" className={classes.grow}>
           {name} EOG React Visualization Assessment
-          <button className={classes.button} onClick={switchHandler}>switch</button>
+          {!isSwitch && <button className={classes.button} onClick={switchToChartHandler}>Chart</button>}
+          {isSwitch && <button className={classes.button} onClick={switchToLandingHandler}>Landing</button>}
         </Typography>
         <Weather />
       </Toolbar>
