@@ -28,12 +28,21 @@ var moment = require("moment");
     
   }
 
-const TooltipBox = props => {
   
+  const TooltipBox = props => {
+    if (props.props.tooltipInfo === null || props.props.tooltipInfo.length === 0){return null}
+    let time = moment(parseInt(props.props.tooltipInfo.activePayload[0].payload.name)).format("lll")
     return (
       <div style={style.div1}>
           {time}
-          <div style={style.div}>
+          <div style={style.div2}>
+            {
+              props.props.tooltipInfo.activePayload.map(a=>{
+                return (
+                  <p key= {a.dataKey} style={style.div3}>{a.dataKey}: {a.value}</p>
+                )
+              })
+            }
           </div>
 
       </div>
